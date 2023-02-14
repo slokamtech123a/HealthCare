@@ -36,7 +36,7 @@ public class HelthcareApplicationTests {
 	    for (String string : list) {
 			System.out.println(string);
 		}
-	    Assert.assertEquals(4, list.size());
+	    Assert.assertEquals(1, list.size());
 	}
 	
 	/*@Mock

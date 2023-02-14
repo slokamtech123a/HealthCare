@@ -2,6 +2,7 @@ package com.slokam.da.hc.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Appointment {
 	private String comments;
 	
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="pid")
 	private Patient patient;
 	

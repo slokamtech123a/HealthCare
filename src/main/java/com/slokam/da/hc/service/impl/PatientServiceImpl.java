@@ -28,6 +28,8 @@ public class PatientServiceImpl implements IPatientService{
 		
 		LOGGER.debug("savePatient start");
 		try{
+			patient.getAadharCard().setPatient(patient);
+			
 			PatientDAO.save(patient);
 		}catch(Exception e){
 			e.printStackTrace();
