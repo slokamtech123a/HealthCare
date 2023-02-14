@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.slokam.da.hc.comp.PatientComparator;
 import com.slokam.da.hc.comp.PatientIdComparator;
 import com.slokam.da.hc.dao.PatientDAO;
+import com.slokam.da.hc.entity.Appointment;
 import com.slokam.da.hc.entity.Patient;
 import com.slokam.da.hc.exception.PatientException;
 import com.slokam.da.hc.service.IPatientService;
@@ -28,7 +29,16 @@ public class PatientServiceImpl implements IPatientService{
 		
 		LOGGER.debug("savePatient start");
 		try{
-			patient.getAadharCard().setPatient(patient);
+			if(patient.getAadharCard()!=null) {
+			 patient.getAadharCard().setPatient(patient);
+			}
+			if(patient.getAppointmentList()!=null && !patient.getAppointmentList().isEmpty()) {
+			   List<Appointment> list = patient.getAppointmentList();
+			   for (Appointment appointment : list) {
+				   appointment.setTaken(new Date());
+				   appointment.setPatient(patient);
+			 }
+		  }
 			
 			PatientDAO.save(patient);
 		}catch(Exception e){

@@ -1,12 +1,14 @@
 package com.slokam.da.hc.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
@@ -21,11 +23,21 @@ public class Patient {
 	private Date dob;
 	@Column(name="phnnum")
 	private Long phone;
+	@OneToMany(cascade = CascadeType.ALL , mappedBy ="patient" )
+	private List<Appointment> appointmentList;
+	
 	
 	@OneToOne(mappedBy = "patient",cascade = CascadeType.ALL)
 	private AadharCard aadharCard;
 	
 	
+	
+	public List<Appointment> getAppointmentList() {
+		return appointmentList;
+	}
+	public void setAppointmentList(List<Appointment> appointmentList) {
+		this.appointmentList = appointmentList;
+	}
 	public AadharCard getAadharCard() {
 		return aadharCard;
 	}
