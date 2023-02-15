@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class AadharCard {
 
@@ -13,8 +15,10 @@ public class AadharCard {
 	@GeneratedValue
 	private Integer id;
 	private Long aadhar;
+	
 	@OneToOne
 	@JoinColumn(name="pid")
+	@JsonIgnore
 	private Patient patient;
 	
 	

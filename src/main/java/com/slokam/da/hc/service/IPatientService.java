@@ -11,4 +11,5 @@ public interface IPatientService {
 	 public void savePatient(Patient patient) throws PatientException;
 	 public Patient getPatientById(Integer id) throws PatientException;
 	 public abstract List<String> getDoctorNamesByPatientName(String name)throws PatientException;
+	 public Patient getMaxAgePatient() ;
 }

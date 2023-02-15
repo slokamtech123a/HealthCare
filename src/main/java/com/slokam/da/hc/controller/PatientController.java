@@ -49,4 +49,13 @@ public class PatientController {
 			LOGGER.debug("Exit from  List<Patient>");
 			return re;
 	 }
+	 
+	 @GetMapping
+	 public ResponseEntity<Patient> getMaxAgePatient()throws PatientException {
+		 LOGGER.debug("Entered into getMaxAgePatient");
+		 Patient patient = patientService.getMaxAgePatient();
+		 
+		 LOGGER.debug("Exit from  getMaxAgePatient");
+		 return ResponseEntity.ok(patient);
+	 }
 }

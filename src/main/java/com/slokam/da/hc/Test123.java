@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 
 import com.slokam.da.hc.entity.Doctor;
 
-public class Test {
+public class Test123 {
 	public static void main(String[] args) {
 		test(Doctor.class);
 	}

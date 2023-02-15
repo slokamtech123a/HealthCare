@@ -93,7 +93,7 @@ public class PatientServiceImpl implements IPatientService{
 		}
 	
 	
-	public Patient getMaxAgePatient(){
+	public Patient getMaxAgePatient() {
 		 Patient p = null;
 		 LOGGER.debug("getMaxAgePatient start");
 		 List<Patient> patientList = PatientDAO.findAll();
@@ -103,7 +103,7 @@ public class PatientServiceImpl implements IPatientService{
 			 }else{
 				 Date dob1  = patient.getDob();
 				 Date dob2  = p.getDob();
-				 if(dob1.after(dob2)){
+				 if(dob1.before(dob2)){
 					 p=patient;
 				 }
 			 }
